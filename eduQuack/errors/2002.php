@@ -3,15 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>2002 | eduQuack</title>
+    <title>Error 2002 - Error de Conexión al Servidor de MySQL | eduQuack</title>
     <link rel="icon" href="images/ginebro-logo (1).png">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <div class="error-message">
-        <h1>2002 - Petició acceptada</h1>
-        <p>JBKJHIHGV</p>
+        <h1>Error 2002 - Error de Conexión al Servidor de MySQL</h1>
+        <p>No se puede conectar al servidor de la base de datos MySQL. Por favor, verifica la configuración de conexión.</p>
     </div>
 </body>
 
