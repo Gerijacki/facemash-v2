@@ -9,4 +9,3 @@ $mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 if($mysqli === false){
     die("ERROR: No se pudo conectar a la base de datos. " . $mysqli->connect_error);
 }
-?>
