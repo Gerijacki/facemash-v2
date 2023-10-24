@@ -72,7 +72,7 @@ $conn->close();
             <li><a href="perfil.php"><img id="conficon" src="images/user.png"></a></li>
         </ul>
     </menu>
-    <main>
+    <main class="div-news">
         <!-- Contenedor para mostrar las noticias dinámicamente -->
         <div id="noticias-container"></div>
         <?php foreach ($noticias as $noticia) : ?>
