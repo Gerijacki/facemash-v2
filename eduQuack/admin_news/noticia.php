@@ -5,7 +5,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-require_once('config.php');
+require_once('news_database.php');
 
 // Obtén datos del formulario
 $titulo = $_POST['titulo'];
@@ -33,3 +33,4 @@ if ($stmt = $conn->prepare($sql)) {
 
 // Cierra la conexión a la base de datos
 $conn->close();
+?>

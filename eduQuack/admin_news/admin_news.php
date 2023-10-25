@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <title>Añadir Noticia</title>
 </head>
-
 <body>
     <?php
     session_start();
@@ -42,5 +40,4 @@
         <input type="submit" value="Guardar Noticia">
     </form>
 </body>
-
 </html>
