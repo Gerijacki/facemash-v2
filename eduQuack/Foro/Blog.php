@@ -8,11 +8,13 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     if (isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
         // El usuario tiene el rol de administrador, muestra funciones extras para administradores
         echo "¡Bienvenido, administrador! Aquí están las funciones extras:";
+        exit();
         // echo '<a href="borrar_post.php?id=' . $row["id"] . '">Eliminar</a>';
         // Coloca aquí el código HTML o funciones adicionales para administradores
     } else {
         // El usuario no tiene el rol de administrador, muestra funciones estándar para usuarios normales
         echo "¡Bienvenido! Aquí están las funciones estándar:";
+        exit();
         // Coloca aquí el código HTML o funciones para usuarios normales
     }
 } else {
