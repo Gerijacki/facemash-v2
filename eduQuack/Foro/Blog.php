@@ -22,8 +22,13 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 }
 
 
+require_once('../config.php');
 
-require_once('config.php');
+$mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
+if($mysqli === false){
+    die("ERROR: No se pudo conectar a la base de datos. " . $mysqli->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titulo = $_POST["titulo"];
