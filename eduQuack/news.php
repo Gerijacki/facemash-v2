@@ -1,10 +1,5 @@
 <?php
-// Obtiene las credenciales de la base de datos desde variables de entorno
-define('DB_SERVER', getenv('DB_SERVER'));
-define('DB_USERNAME', getenv('DB_USERNAME'));
-define('DB_PASSWORD', getenv('DB_PASSWORD'));
-define('DB_DATABASE', getenv('DB_DATABASE'));
-
+require_once "config.php";
 try {
     // Crea una nueva conexión a la base de datos
     $mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
