@@ -1,37 +1,40 @@
 <?php
-session_start();
+// Obtiene las credenciales de la base de datos desde variables de entorno
+define('DB_SERVER', getenv('DB_SERVER'));
+define('DB_USERNAME', getenv('DB_USERNAME'));
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
+define('DB_DATABASE', getenv('DB_DATABASE'));
 
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.html");
-    exit;
-}
+try {
+    // Crea una nueva conexión a la base de datos
+    $mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-require_once('config.php');
-
-// // Crea la conexión
-// $conn = new mysqli($servername, $username, $password, $database);
-
-// // Verifica la conexión
-// if ($conn->connect_error) {
-//     die("Conexión fallida: " . $conn->connect_error);
-// }
-
-// Consulta SQL para obtener todas las noticias
-$sql = "SELECT titulo, contenido, fecha FROM noticias";
-$result = $conn->query($sql);
-
-// Array para almacenar las noticias
-$noticias = [];
-
-// Obtener todas las noticias y guardarlas en el array $noticias
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $noticias[] = $row;
+    // Verifica la conexión y maneja errores si la conexión falla
+    if ($mysqli->connect_error) {
+        throw new Exception("No se pudo conectar a la base de datos: " . $mysqli->connect_error);
     }
-}
 
-// Cerrar la conexión
-$conn->close();
+    // Consulta SQL para obtener todas las noticias
+    $sql = "SELECT titulo, contenido, fecha FROM noticias";
+    $result = $mysqli->query($sql);
+
+    // Array para almacenar las noticias
+    $noticias = [];
+
+    // Obtener todas las noticias y guardarlas en el array $noticias
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $noticias[] = $row;
+        }
+    }
+
+    // Cerrar la conexión
+    $mysqli->close();
+} catch (Exception $e) {
+    // Manejar cualquier excepción que pueda ocurrir durante la ejecución
+    echo "Error: " . $e->getMessage();
+    exit(); // Detener la ejecución del script si hay un error
+}
 ?>
 
 <!DOCTYPE html>
@@ -82,8 +85,6 @@ $conn->close();
                 <p>Fecha: <?php echo htmlspecialchars($noticia['fecha']); ?></p>
             </div>
         <?php endforeach; ?>
-
-        <!-- Código JavaScript para cargar dinámicamente las noticias usando AJAX -->
     </main>
     <!-- Pie de página -->
     <footer>
