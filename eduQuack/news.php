@@ -6,7 +6,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-require_once('news_database.php');
+require_once('config.php');
 
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $database);

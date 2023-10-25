@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('blog_database.php');
+require_once('config.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titulo = $_POST["titulo"];

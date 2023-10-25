@@ -5,7 +5,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-require_once('news_database.php');
+require_once('config.php');
 
 // Obtén datos del formulario
 $titulo = $_POST['titulo'];
