@@ -8,13 +8,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 require_once('config.php');
 
-// Crea la conexión
-$conn = new mysqli($servername, $username, $password, $database);
+// // Crea la conexión
+// $conn = new mysqli($servername, $username, $password, $database);
 
-// Verifica la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+// // Verifica la conexión
+// if ($conn->connect_error) {
+//     die("Conexión fallida: " . $conn->connect_error);
+// }
 
 // Consulta SQL para obtener todas las noticias
 $sql = "SELECT titulo, contenido, fecha FROM noticias";
